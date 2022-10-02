@@ -1,0 +1,61 @@
+.page {
+    font-family: 'Roboto', 'sans-serif';
+}
+.page__body {
+    margin: 0;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../Img/header.jpg);
+    padding: 24px 20px 80px;
+}
+.header__title {
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -1px;
+}
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__menu-opener {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../Img/menu.svg);
+}
+.header__menu-opener:hover {
+    background-image: url(../Img/menu_hover.svg);
+}
+.header__call {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../Img/Phones.svg);
+}
+.logo__imege {
+    width: 48px;
+}
+.header__title::before {
+    content: '';
+    width: 40px;
+    display: block;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 24px;
+}
