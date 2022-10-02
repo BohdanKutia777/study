@@ -1,33 +1,65 @@
+
+@mixin onDesktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+.icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    @include onDesktop {
+        width: 24px;
+        height: 24px;
+    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .page {
     font-family: 'Roboto', 'sans-serif';
     &__body {
         margin: 0;
     }
 }
+.container {
+    max-width: 1024px;
+    margin: 0 auto; 
+    padding: 0 20px;
+    @include onDesktop {
+        padding: 40px;
 
+    }
+}
 .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-    height: 100vh;
     background-size: cover;
     background-position: center;
-    background-image: url(../Img/header.png);
-    padding: 24px 20px 80px;
-
+     box-sizing: border-box;
+    background-image: url(../Img/header.jpg);
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        padding: 24px 0 80px;
+    }
     &__title {
         font-size: 48px;
         line-height: 40px;
         font-weight: bold;
         color: #fff;
         letter-spacing: -1px;
+        @include onDesktop {
+            font-size: 80px;
+            line-height: 80px;
+            letter-spacing: -1.5px;
+        }
         &::before{
             content: '';
             width: 40px;
             display: block;
             height: 2px;
-            color: #fff;
+            background-color: #fff;
             margin-bottom: 24px;
         }
     }
@@ -36,13 +68,8 @@
         justify-content: space-between;
         align-items: center;
     }
-    &__menu-opener {
-        display: block;
-        width: 18px;
-        height: 12px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        &__menu-opener {
+
 
         background-image: url(../Img/menu.svg);
 
@@ -50,20 +77,42 @@
         background-image: url(../Img/menu_hover.svg);
 
         }
+    }
 
     &__call {
-        width: 18px;
-        height: 18px;
-        display: block;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         background-image: url(../Img/Phones.svg);
+        text-decoration: none;
+        @include onDesktop {
+            &::before {
+                content: "+1 234 555-55-555";
+                opacity: 0;
+                pointer-events: none;
+                top: 50%;
+                transform: translate(-100%, -50%);
+                position: relative;
+                color: #fff;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 16px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                display: block;
+                padding-right: 20px;
+                width: max-content;
+            }
+            &:hover::before {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
     }
     }
-}
+
 .logo {
     &__imege {
         width: 48px;
+        @include onDesktop {
+            height: 80px;
+        }
     }
 }
