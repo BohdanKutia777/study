@@ -1,11 +1,12 @@
 
+$colorBlue: #0075FF;
+$headerTopPAdding: 24px;
 @mixin onDesktop {
     @media (min-width: 1024px) {
         @content;
     }
 }
-$colorBlue: #0075FF;
-$headerTopPAdding: 24px;
+
 
 .icon {
     display: block;
@@ -50,6 +51,9 @@ $headerTopPAdding: 24px;
     }
     &__section {
         margin-bottom: 64px;
+        @include onDesktop {
+            margin-bottom: 104px;
+        }
     }
     &__section-title {
         font-size: 36px;
@@ -239,5 +243,74 @@ $headerTopPAdding: 24px;
     }
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    
+    @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    }
+    &__desktop {
+        display: block;
+        @include onDesktop {
+            display: grid;
+        }
+    }
+    &__iteam {
+        @for $start from 1 through 12 {
+            @for $end from $start through 12 {
+                &--#{$start}-#{$end} {
+                    grid-column: #{$start} / #{$end};
+                    }
+                }
+            }
+        }
+    }
 
+.about {
+    &__title {
+        margin: 0 0 48px;
+        font-weight: 700;
+        font-size:36px;
+        line-height: 36px;
+        align-items: center;
+        letter-spacing: -1.5px;
+        color: #000;
+        @include onDesktop {
+            font-size:48px;
+            line-height: 48px;
+            margin-bottom: 0;
+        } 
+    
+    }
+    &__title-link {
+        color: $colorBlue;
+        text-decoration: none;
+        text-align: left;
+    }
+    &__subtitle {
+        display: block;
+        margin-bottom: 16px;
+        color: $colorBlue;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-decoration: none;
+    }
+    &__paragraph {
+        margin: 0 0 27px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 27px;
+        color: #3E3E3E;
 
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &--important {
+            font-weight: bold;
+        }
+    }
+}
