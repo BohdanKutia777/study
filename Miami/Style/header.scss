@@ -60,12 +60,18 @@ $headerTopPAdding: 24px;
         }
     }
     &__section-title {
+        margin: 0 0 32px;
         font-size: 36px;
         font-weight: bold;
         line-height: 36px;
         text-align: center;
         letter-spacing: -1.5px;
         color: #000;
+        @include onDesktop {
+            margin-bottom: 56px;
+            font-size: 48px;
+            line-height: 48px;
+        }
         &::after {
             content: "";
             display: block;
@@ -262,7 +268,7 @@ $headerTopPAdding: 24px;
             display: grid;
         }
     }
-    &__iteam {
+    &__item {
         @for $start from 1 through 12 {
             @for $end from $start through 12 {
                 &--#{$start}-#{$end} {
@@ -396,4 +402,65 @@ $headerTopPAdding: 24px;
         background-color: #005ECC;
     box-shadow: 0px 8px 14px rgba(0, 83, 181, 0.48);
     }
+}
+
+.testimonials {
+    &__item {
+        margin-bottom: 48px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include onDesktop {
+        margin-bottom: 0;
+    }
+}
+.testimonial {
+    &__photo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 28px;
+        @include onDesktop {
+            margin-bottom: 32px;
+            display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 24px;
+        }
+    }
+    &__photo {
+        width: 153px;
+        height: 153px;
+        grid-column: 2 / 4;
+    }
+    &__name {
+        font-weight: bold;
+        font-style: 24px;
+        line-height: 30px;
+        text-align: center;
+        margin: 0 0 4px;
+    }
+    &__role {
+        font-size: 14px;
+        line-height: 27px;
+        text-align: center;
+        color: #9FADC2;
+        margin: 0 0 4px;
+    }
+    &__about {
+        text-align: center;
+    }
+}
+.grid_testimonial{
+    display: flex;
+    flex-direction: column;
+    
+    @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    }
+}
+.link {
+    color: $colorBlue;
+    text-decoration: none;
 }
